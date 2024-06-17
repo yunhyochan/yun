@@ -1,0 +1,148 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#main-title-screen {
+    background: url('title-background.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+#game-screen {
+    background: url('game-background.jpg') no-repeat center center;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+#main-title-screen h1 {
+    font-size: 3em;
+    color: white;
+    text-shadow: 2px 2px 4px #000;
+}
+
+#main-title-screen button {
+    padding: 10px 20px;
+    font-size: 1.5em;
+    margin-top: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+}
+
+#main-title-screen button:hover {
+    background-color: #555;
+}
+
+#game-area {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+#main-character-container, #second-character-container {
+    position: absolute;
+    width: 200px;
+    height: 400px;
+}
+
+#main-character-container {
+    bottom: 10px;
+    right: 10px;
+}
+
+#main-character {
+    width: 100%;
+    height: 100%;
+    background: url('character_full_body.png') no-repeat center center;
+    background-size: contain;
+}
+
+#second-character-container {
+    bottom: 20px;
+    left: 10px;
+}
+
+#second-character {
+    width: 100%;
+    height: 100%;
+    background: url('second_character.png') no-repeat center center;
+    background-size: contain;
+    transition: left 0.3s ease-out;
+    z-index: 1; /* 레이어 순서 설정 */
+}
+
+#item {
+    position: absolute;
+    left: 0;
+    top: 75%;
+    width: 150px;
+    height: 150px;
+    background: url('item.png') no-repeat center center;
+    background-size: contain;
+    z-index: 2; /* 레이어 순서 설정, 두 번째 캐릭터보다 상위 */
+    transition: left 1s linear;
+}
+
+#score-board {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 1.2em;
+    color: white;
+    text-shadow: 1px 1px 2px #000;
+}
+
+#item-name {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 4.5em; /* 상품명 크기를 3배로 설정 */
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+@keyframes correct-impact {
+    0% { background-color: rgba(0, 255, 0, 0.5); }
+    50% { background-color: rgba(0, 255, 0, 1); }
+    100% { background-color: rgba(0, 255, 0, 0.5); }
+}
+
+@keyframes wrong-impact {
+    0% { background-color: rgba(255, 0, 0, 0.5); }
+    50% { background-color: rgba(255, 0, 0, 1); }
+    100% { background-color: rgba(255, 0, 0, 0.5); }
+}
+
+.correct-impact {
+    animation: correct-impact 1s ease;
+}
+
+.wrong-impact {
+    animation: wrong-impact 1s ease;
+}

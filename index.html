@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>세니는 힘들어</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div id="main-title-screen" class="screen">
+        <h1>세니는 힘들어</h1>
+        <button onclick="startGame()">출근하기</button>
+    </div>
+    <div id="game-screen" class="screen hidden">
+        <div id="game-area">
+            <div id="main-character-container">
+                <div id="main-character"></div>
+            </div>
+            <div id="second-character-container">
+                <div id="second-character"></div>
+            </div>
+            <div id="item"></div>
+        </div>
+        <div id="item-name">상품명</div>
+        <div id="score-board">
+            <p>점수: <span id="score">0</span></p>
+            <p>시간: <span id="timer">30</span></p>
+        </div>
+    </div>
+    <div id="game-over-screen" class="screen hidden">
+        <h1>게임 오버</h1>
+        <p>최종 점수: <span id="final-score">0</span></p>
+        <img id="game-over-image" src="" alt="게임 종료 이미지">
+        <button onclick="restartGame()">다시 시작</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
